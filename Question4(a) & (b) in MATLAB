@@ -1,0 +1,17 @@
+syms a1 b1 r1 a2 b2 r2
+
+a1 = (30/180)*pi;
+b1 = (60/180)*pi;
+r1 = (45/180)*pi;
+
+A = [ cos(a1)*cos(b1), cos(a1)*sin(b1)*sin(r1)-sin(a1)*cos(r1), cos(a1)*sin(b1)*cos(r1)+sin(a1)*sin(r1);
+    sin(a1)*cos(b1), sin(a1)*sin(b1)*sin(r1)+cos(a1)*cos(r1), sin(a1)*sin(b1)*cos(r1)-cos(a1)*sin(r1);
+    (-sin(b1)), (cos(b1)*sin(r1)), cos(b1)*cos(r1)];
+
+B = [ cos(a2)*cos(b2)*cos(r2)-sin(a2)*sin(r2), -cos(r2)*sin(a2)-cos(a2)*cos(b2)*sin(r2), cos(a2)*sin(b2);
+    cos(a2)*sin(r2)+cos(b2)*cos(r2)*sin(a2), cos(a2)*cos(r2)-cos(b2)*sin(a2)*sin(r2), sin(a2)*sin(b2);
+    -cos(r2)*sin(b2), sin(b2)*sin(r2), cos(b2)];
+
+eqn = A-B;
+%[sol_a1, sol_b1, sol_r1] = solve(eqn, [a1, b1, r1])
+[sol_a2, sol_b2, sol_r2] = solve(eqn, [a2, b2, r2])
