@@ -1,0 +1,16 @@
+clc, clear all, close all,
+
+syms w1 w2 w3 theta
+theta = 2*pi/3;
+% Define the given matrices
+A = [cos(theta)+(w1^2)*(1-cos(theta)), w1*w2*(1-cos(theta))-w3*sin(theta), w1*w3*(1-cos(theta))+w2*sin(theta);
+    w1*w2*(1-cos(theta))+w3*sin(theta), cos(theta)+(w2^2)*(1-cos(theta)), w2*w3*(1-cos(theta))-w1*sin(theta);
+    w1*w3*(1-cos(theta))-w2*sin(theta), w2*w3*(1-cos(theta))+w1*sin(theta), cos(theta)+w3*w3*(1-cos(theta))];
+
+B = [0, -1, 0; 0, 0, -1; 1, 0, 0];
+
+% Solve the system of equations
+eqns = A - B
+
+% Solve the equations for w1, w2, w3
+[sol_w1, sol_w2, sol_w3] = solve(eqns, [w1, w2, w3]);
