@@ -1,0 +1,16 @@
+
+% Define symbolic variables
+syms a b r
+
+% Define the given matrices
+A = [cos(a)*cos(b) cos(a)*sin(b)*sin(r)-sin(a)*cos(r) cos(a)*sin(b)*cos(r)+sin(a)*sin(r);
+    sin(a)*cos(b) sin(a)*sin(b)*sin(r)+cos(a)*cos(r) sin(a)*sin(b)*cos(r)-cos(a)*sin(r);
+    -sin(b) cos(b)*sin(r) cos(b)*cos(r)];
+
+B = [0.6, 0.79, -0.01; 0.47, -0.34, 0.81; 0.64, -0.5, -0.58];
+
+% Solve the system of equations
+eqns = A - B;
+
+% Solve the equations for a, b, and r
+[sol_a, sol_b, sol_r] = solve(eqns, [a, b, r]);
